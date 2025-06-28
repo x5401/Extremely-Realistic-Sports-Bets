@@ -2,6 +2,28 @@
   margin: 0;
   padding: 0;
 }
+body{
+  background-image: url(e1ddcf88b8ec17d88a6c1f5100cd1b71dd89274c.png);
+  background-size: 190%;
+  background-repeat: no-repeat, no-repeat;
+  background-position: 28% 0%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+body>* {
+  background-color: #ffffffc5;
+}
+header{
+  color: #FF1B6D;
+  border-bottom: 10px solid #FF1B6D;
+}
+main{
+  flex-grow: 1;
+}
 ul,li{
   list-style: none;
 }
@@ -9,19 +31,40 @@ h1{
   margin: 0 1em;
 }
 .bank-box{
-  background-color: rgb(198, 241, 139);
-  border-radius: 20px;
+  background-color: #B5FF88;
   height: 50px;
   line-height: 50px;
 }
 #team1,#team2{
   /* height: 80px; */
-  background-color: #544f4f;
+  background-color: #191919;
   font-size: 3em;
   text-align: center;
 }
-ul button{
-  border-radius: 10px;
-  background: pink;
+.team1-button{
+  width: 200px;
+  height: 50px;
+  background: #DB4BFF80;
+  border: none;
   padding: 5px 10px;
+}
+.team2-button{
+  width: 200px;
+  height: 50px;
+  background: #4BC9FF80;
+  border: none;
+  padding: 5px 10px;
+}
+.person{
+  background-image: url(ok.png);
+  background-repeat: no-repeat;
+  background-position: center 80px;
+  min-width: 250px;
+  min-height: 300px;
+}
+.comment{
+  background-image: url(comment-box.png);
+  background-repeat: no-repeat;
+  min-width: 500px;
+  min-height: 250px;
 }

@@ -11,6 +11,11 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
     defer></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Island+Moments&family=Marko+One&family=Oxygen:wght@300;400;700&family=Pacifico&family=Permanent+Marker&family=Quando&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js"
     defer></script>
@@ -19,63 +24,57 @@
 <body class="debug">
   <header class="container-fluid">
     <section class="row">
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="d-flex align-items-baseline my-2">
-          <h1>ERSB</h1>
-          <p class="fs-5">Extremely Realistic Sports Bets</p>
+          <h1 class="me-3">ERSB</h1>
+          <p class="fs-5 mb-0">Extremely Realistic Sports Bets</p>
         </div>
       </div>
     </section>
   </header>
   <main class="container-fluid">
-    <section class="row justify-content-center">
-      <div class="col-md-4">
+    <section class="row justify-content-center mt-5">
+      <div class="col-md-2">
         <div>
-          <p class="text-center fs-5">bank</p>
-          <p class="text-end fs-5 bank-box px-5">$<span id="bank">100.00</span></p>
+          <p class="text-center fs-5 mb-1">bank</p>
+          <p class="text-end fs-5 bank-box px-4 rounded-pill">$<span id="bank">100</span></p>
         </div>
       </div>
     </section>
     <section class="row justify-content-center">
       <div class="col-md-5">
-        <div>
-          <p>Team 1</p>
-          <div id="team1" class="rounded-5 p-4"></div>
-          <ul class="d-flex justify-content-around my-3">
-            <li>
-              <button type="button" onclick="betTeam1(5)">Bet 5</button>
-            </li>
-            <li>
-              <button type="button" onclick="betTeam1(25)">Bet 25</button>
-            </li>
-            <li>
-              <button type="button" onclick="betTeam1(100)">Bet 100</button>
-            </li>
-            <li>
-              <button type="button" onclick="betTeam1(bank)">Bet it all</button>
-            </li>
-          </ul>
+        <div class="text-center">
+          <p class="mb-1 fs-4">Team 1</p>
+          <div id="team1" class="rounded-pill px-4 py-3"></div>
+          <div class="mt-4">
+            <button type="button" class="team1-button rounded-pill fs-4" onclick="betTeam1(5)">Bet 5</button>
+            <button type="button" class="team1-button rounded-pill fs-4" onclick="betTeam1(25)">Bet 25</button>
+            <button type="button" class="team1-button rounded-pill fs-4" onclick="betTeam1(100)">Bet 100</button>
+          </div>
+          <div class="mt-3">
+            <button type="button" class="team1-button rounded-pill fs-4" onclick="betAll(1)">Bet it all</button>
+          </div>
         </div>
       </div>
       <div class="col-md-5">
-        <div>
-          <p>Team 2</p>
-          <div id="team2" class="rounded-5 p-4"></div>
-          <ul class="d-flex justify-content-around my-3">
-            <li>
-              <button type="button" onclick="betTeam2(5)">Bet 5</button>
-            </li>
-            <li>
-              <button type="button" onclick="betTeam2(25)">Bet 25</button>
-            </li>
-            <li>
-              <button type="button" onclick="betTeam2(100)">Bet 100</button>
-            </li>
-            <li>
-              <button type="button" onclick="betTeam2(bank)">Bet it all</button>
-            </li>
-          </ul>
+        <div class="text-center">
+          <p class="mb-1 fs-4">Team 2</p>
+          <div id="team2" class="rounded-pill px-4 py-3"></div>
+          <div class="mt-4">
+            <button type="button" class="team2-button rounded-pill fs-4" onclick="betTeam2(5)">Bet 5</button>
+            <button type="button" class="team2-button rounded-pill fs-4" onclick="betTeam2(25)">Bet 25</button>
+            <button type="button" class="team2-button rounded-pill fs-4" onclick="betTeam2(100)">Bet 100</button>
+          </div>
+          <div class="mt-3">
+            <button type="button" class="team2-button rounded-pill fs-4" onclick="betAll(2)">Bet it all</button>
+          </div>
         </div>
+      </div>
+    </section>
+    <section class="row justify-content-center mt-5">
+      <div class="col-md-6 d-flex">
+        <div class="person"></div>
+        <div class="comment fs-3 p-5 text-start">That was a good bet!</div>
       </div>
     </section>
   </main>

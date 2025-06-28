@@ -27,7 +27,7 @@ function drawTeam1() {
   let team1Content = ''; // Create empty  container first
   //.. loop through players adding only those on team1
   players.forEach(player => {
-    if(1 === player.teamNumber){
+    if (1 === player.teamNumber) {
       team1Content += player.emoji;
     }
   });
@@ -38,14 +38,14 @@ function drawTeam2() {
   let team2Content = ''; // Create empty  container first
   //.. loop through players adding only those on team1
   players.forEach(player => {
-    if(2 === player.teamNumber){
+    if (2 === player.teamNumber) {
       team2Content += player.emoji;
     }
   });
   team2Container.innerHTML = team2Content;
 }
-function draftPlayers(){
-  players.forEach(player =>{
+function draftPlayers() {
+  players.forEach(player => {
     let randomNum = Math.ceil(Math.random() * 2);
     player.teamNumber = randomNum;
   });
@@ -53,14 +53,18 @@ function draftPlayers(){
   drawTeam2();
 }
 function betTeam1(bet) {
+  if (bet > bank) {
+    alert(`You don't have the funds to bet $${bet}`);
+    return;
+  }
   let team1Skill = 0
   let team2Skill = 0
 
   players.forEach((player) => {
     // add each players skill to the appropriate variable
-    if(1 === player.teamNumber){
+    if (1 === player.teamNumber) {
       team1Skill += player.skill;
-    }else{
+    } else {
       team2Skill += player.skill;
     }
   })
@@ -68,24 +72,28 @@ function betTeam1(bet) {
   console.log('⚽ team 1', team1Skill)
   console.log('🏈 team 2', team2Skill)
   //...
-  if(team1Skill > team2Skill){
+  if (team1Skill > team2Skill) {
     bank += bet;
     popAlert(`won ${bet}`);
-  }else{
+  } else {
     bank -= bet;
     popAlert(`lost ${bet}`);
   }
   drawBank();
 }
 function betTeam2(bet) {
+  if (bet > bank) {
+    alert(`You don't have the funds to bet $${bet}`);
+    return;
+  }
   let team1Skill = 0
   let team2Skill = 0
 
   players.forEach((player) => {
     // add each players skill to the appropriate variable
-    if(1=== player.teamNumber){
+    if (1 === player.teamNumber) {
       team1Skill += player.skill;
-    }else{
+    } else {
       team2Skill += player.skill;
     }
   })
@@ -93,40 +101,46 @@ function betTeam2(bet) {
   console.log('⚽ team 1', team1Skill)
   console.log('🏈 team 2', team2Skill)
   //...
-  if(team2Skill > team1Skill){
+  if (team2Skill > team1Skill) {
     bank += bet;
     popAlert(`won ${bet}`);
-  }else{
+  } else {
     bank -= bet;
     popAlert(`lost ${bet}`);
   }
   drawBank();
 }
-function drawBank(){
+function drawBank() {
   oBank.innerText = bank;
   draftPlayers();
 }
-function popAlert(str){
-  if(bank <= 0){
+function popAlert(str) {
+  if (bank <= 0) {
     bank = 0;
     setTimeout(() => {
-      alert(`You've gone bust. Game over`);
+      let wantToPlayAgain = confirm(`You've gone bust. Game over! Would you like to play again?`);
+      if (true === wantToPlayAgain) {
+        bank = 100;
+        drawBank();
+      } else {
+        window.close();
+      }
     }, 100);
-  }else{
+  } else {
     setTimeout(() => {
       alert(`You ${str} bucks`);
     }, 100);
   }
 }
-function betAll(){
+function betAll(team) {
   let team1Skill = 0
   let team2Skill = 0
 
   players.forEach((player) => {
     // add each players skill to the appropriate variable
-    if(1=== player.teamNumber){
+    if (1 === player.teamNumber) {
       team1Skill += player.skill;
-    }else{
+    } else {
       team2Skill += player.skill;
     }
   })
@@ -134,17 +148,28 @@ function betAll(){
   console.log('⚽ team 1', team1Skill)
   console.log('🏈 team 2', team2Skill)
   //...
-  if(team1Skill > team2Skill){
-    let currentBank = bank;
-    bank += bank;
-    popAlert(`won ${currentBank}`);
-    drawBank();
+  if (1 === team) {
+    if (team1Skill > team2Skill) {
+      let currentBank = bank;
+      bank += bank;
+      popAlert(`won ${currentBank}`);
+      drawBank();
+    } else {
+      bank = 0;
+      popAlert('');
+      drawBank();
+    }
   }else{
-    bank = 0;
-    setTimeout(() => {
-      alert(`You've gone bust. Game over`);
-    }, 100);
-    drawBank();
+    if (team2Skill > team1Skill) {
+      let currentBank = bank;
+      bank += bank;
+      popAlert(`won ${currentBank}`);
+      drawBank();
+    } else {
+      bank = 0;
+      popAlert('');
+      drawBank();
+    }
   }
 }
 draftPlayers();
