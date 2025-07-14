@@ -78,6 +78,7 @@ function betTeam1(bet) {
     bank += bet;
     oPerson.style.display = "block";
     oPerson.style.backgroundImage = "url(ok.png)";
+    oComment.style.display = "block";
     oComment.innerText = "That was a good bet!";
     oComment.className = "comment-ok";
     popAlert(`won ${bet}`);
@@ -85,6 +86,7 @@ function betTeam1(bet) {
     bank -= bet;
     oPerson.style.display = "block";
     oPerson.style.backgroundImage = "url(no.png)";
+    oComment.style.display = "block";
     oComment.innerText = "That was not a good bet!";
     oComment.className = "comment-no";
     popAlert(`lost ${bet}`);
@@ -115,6 +117,7 @@ function betTeam2(bet) {
     bank += bet;
     oPerson.style.display = "block";
     oPerson.style.backgroundImage = "url(ok.png)";
+    oComment.style.display = "block";
     oComment.innerText = "That was a good bet!";
     oComment.className = "comment-ok";
     popAlert(`won ${bet}`);
@@ -122,6 +125,7 @@ function betTeam2(bet) {
     bank -= bet;
     oPerson.style.display = "block";
     oPerson.style.backgroundImage = "url(no.png)";
+    oComment.style.display = "block";
     oComment.innerText = "That was not a good bet!";
     oComment.className = "comment-no";
     popAlert(`lost ${bet}`);
@@ -139,6 +143,8 @@ function popAlert(str) {
       let wantToPlayAgain = confirm(`You've gone bust. Game over! Would you like to play again?`);
       if (true === wantToPlayAgain) {
         bank = 100;
+        oPerson.style.display = "none";
+        oComment.style.display = "none";
         drawBank();
       } else {
         window.close();
@@ -172,6 +178,7 @@ function betAll(team) {
       bank += bank;
       oPerson.style.display = "block";
       oPerson.style.backgroundImage = "url(ok.png)";
+      oComment.style.display = "block";
       oComment.innerText = "That was a good bet!";
       oComment.className = "comment-ok";
       popAlert(`won ${currentBank}`);
@@ -180,6 +187,7 @@ function betAll(team) {
       bank = 0;
       oPerson.style.display = "block";
       oPerson.style.backgroundImage = "url(no.png)";
+      oComment.style.display = "block";
       oComment.innerText = "That was not a good bet!";
       oComment.className = "comment-no";
       popAlert('');
@@ -191,6 +199,7 @@ function betAll(team) {
       bank += bank;
       oPerson.style.display = "block";
       oPerson.style.backgroundImage = "url(ok.png)";
+      oComment.style.display = "block";
       oComment.innerText = "That was a good bet!";
       oComment.className = "comment-ok";
       popAlert(`won ${currentBank}`);
@@ -199,6 +208,7 @@ function betAll(team) {
       bank = 0;
       oPerson.style.display = "block";
       oPerson.style.backgroundImage = "url(no.png)";
+      oComment.style.display = "block";
       oComment.innerText = "That was not a good bet!";
       oComment.className = "comment-no";
       popAlert('');
