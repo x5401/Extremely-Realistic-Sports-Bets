@@ -56,15 +56,27 @@ h1{
   padding: 5px 10px;
 }
 .person{
-  background-image: url(ok.png);
   background-repeat: no-repeat;
   background-position: center 80px;
   min-width: 250px;
   min-height: 300px;
+  display: none;
 }
-.comment{
+.comment-ok{
   background-image: url(comment-box.png);
   background-repeat: no-repeat;
-  min-width: 500px;
-  min-height: 250px;
+  min-width: 450px;
+  height: 180px;
+  padding: 1em 1em;
+  line-height: 80px;
+  font-size: 30px;
+}
+.comment-no{
+  background-image: url(comment-box.png);
+  background-repeat: no-repeat;
+  min-width: 450px;
+  height: 180px;
+  padding: 0.8em 8em 1em 2em;
+  font-size: 30px;
+  text-align: center;
 }

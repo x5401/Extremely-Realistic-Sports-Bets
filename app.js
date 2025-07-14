@@ -1,5 +1,7 @@
 let bank = 100
 let oBank = document.getElementById("bank");
+let oPerson = document.querySelector(".person");
+let oComment = document.querySelector("#comment");
 const players = [
   { teamNumber: 1, emoji: '🏃‍♂️', skill: 10, name: "D'Marcus Williums" },
   { teamNumber: 1, emoji: '🤾‍♂️', skill: 30, name: "Tyroil Smoochie-Wallace" },
@@ -74,6 +76,10 @@ function betTeam1(bet) {
   //...
   if (team1Skill > team2Skill) {
     bank += bet;
+    oPerson.style.display = "block";
+    oPerson.style.backgroundImage = "url(ok.png)";
+    oComment.innerText = "That was a good bet!";
+    oComment.className = "comment-ok";
     popAlert(`won ${bet}`);
   } else {
     bank -= bet;
@@ -103,6 +109,10 @@ function betTeam2(bet) {
   //...
   if (team2Skill > team1Skill) {
     bank += bet;
+    oPerson.style.display = "block";
+    oPerson.style.backgroundImage = "url(ok.png)";
+    oComment.innerText = "That was a good bet!";
+    oComment.className = "comment-ok";
     popAlert(`won ${bet}`);
   } else {
     bank -= bet;
@@ -152,6 +162,10 @@ function betAll(team) {
     if (team1Skill > team2Skill) {
       let currentBank = bank;
       bank += bank;
+      oPerson.style.display = "block";
+      oPerson.style.backgroundImage = "url(ok.png)";
+      oComment.innerText = "That was a good bet!";
+      oComment.className = "comment-ok";
       popAlert(`won ${currentBank}`);
       drawBank();
     } else {
@@ -163,6 +177,10 @@ function betAll(team) {
     if (team2Skill > team1Skill) {
       let currentBank = bank;
       bank += bank;
+      oPerson.style.display = "block";
+      oPerson.style.backgroundImage = "url(ok.png)";
+      oComment.innerText = "That was a good bet!";
+      oComment.className = "comment-ok";
       popAlert(`won ${currentBank}`);
       drawBank();
     } else {
