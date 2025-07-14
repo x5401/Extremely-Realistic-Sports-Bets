@@ -83,6 +83,10 @@ function betTeam1(bet) {
     popAlert(`won ${bet}`);
   } else {
     bank -= bet;
+    oPerson.style.display = "block";
+    oPerson.style.backgroundImage = "url(no.png)";
+    oComment.innerText = "That was not a good bet!";
+    oComment.className = "comment-no";
     popAlert(`lost ${bet}`);
   }
   drawBank();
@@ -116,6 +120,10 @@ function betTeam2(bet) {
     popAlert(`won ${bet}`);
   } else {
     bank -= bet;
+    oPerson.style.display = "block";
+    oPerson.style.backgroundImage = "url(no.png)";
+    oComment.innerText = "That was not a good bet!";
+    oComment.className = "comment-no";
     popAlert(`lost ${bet}`);
   }
   drawBank();
@@ -170,6 +178,10 @@ function betAll(team) {
       drawBank();
     } else {
       bank = 0;
+      oPerson.style.display = "block";
+      oPerson.style.backgroundImage = "url(no.png)";
+      oComment.innerText = "That was not a good bet!";
+      oComment.className = "comment-no";
       popAlert('');
       drawBank();
     }
@@ -185,6 +197,10 @@ function betAll(team) {
       drawBank();
     } else {
       bank = 0;
+      oPerson.style.display = "block";
+      oPerson.style.backgroundImage = "url(no.png)";
+      oComment.innerText = "That was not a good bet!";
+      oComment.className = "comment-no";
       popAlert('');
       drawBank();
     }
